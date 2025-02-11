@@ -7,7 +7,10 @@ import 'package:printing/printing.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
  class ScheduleScreen extends StatefulWidget {
+  const ScheduleScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ScheduleScreenState createState() => _ScheduleScreenState();
 }
 
@@ -121,6 +124,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 }
 
                 fetchSchedule();
+                // ignore: use_build_context_synchronously
                 Navigator.pop(context);
               },
             ),
@@ -140,6 +144,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             children: [
               pw.Text("الجدول الدراسي", style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold)),
               pw.SizedBox(height: 20),
+              // ignore: deprecated_member_use
               pw.Table.fromTextArray(
                 headers: ["المقرر", "المحاضر", "اليوم", "من", "إلى", "المكان", "النوع"],
                 data: scheduleList.map((schedule) => [
@@ -167,6 +172,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
 
     await file.writeAsBytes(await pdf.save());
 
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("تم حفظ الجدول في: $path")));
 
     await Printing.layoutPdf(onLayout: (PdfPageFormat format) async => pdf.save());

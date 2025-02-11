@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generate_schedule_app/Views/Home/home_screen.dart';
 import 'package:generate_schedule_app/Views/Home/schedule_screen.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Generate Schedule',
-          home: ScheduleScreen(),
+          home: HomeScreen(),
 
     );
   }
